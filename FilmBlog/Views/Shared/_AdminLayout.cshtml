@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+   
+    h1{
+        text-align:center;
+    }
+    a{
+        font-size:25px;
+    }
+</style>
+<body class="bgr">
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" style="display:none;z-index:5" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-xxlarge" onclick="w3_close()">Close &times;</button>
+        <a href="/GirisYap/LogOut/" class="w3-bar-item w3-button">Çıkış Yap</a>
+        @*Girisyap controllerdaki logoutu çalıştır*@
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-overlay" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+    <div>
+        <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+        <div class="w3-container">
+            @if (User.IsInRole("A"))
+            {<h1>Hoş Geldin Admin</h1>}
+            @if (User.IsInRole("B"))
+            {<h1>Hoş Geldin Fatime Zehra</h1>}
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+    </script>
+    @RenderBody();
+</body>
+</html>

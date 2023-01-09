@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   
+    <title>Login</title>
+    <style>
+        .login {
+            background: #fc8b69;
+            background: linear-gradient(to right, #fc997c 0%, #fc8b69 100%);
+        }
+
+        .d-grid {
+            font-size: 1rem;
+            letter-spacing: 0.05rem;
+            padding: 0.75rem 1rem;
+            background: #fc8b69;
+        }
+
+        input {
+            font-size: 20px;
+            background: #edf5f7;
+            border-radius: 8px;
+            
+        }
+
+        .card-body {
+            background-color: blanchedalmond;
+        }
+
+        #floatingInput {
+            font-size: 50px;
+        }
+
+        #floatingPassword {
+            font-size: 50px;
+        }
+
+        .card-title {
+            font-size: 30px;
+        }
+
+        label {
+            font-size: 30px;
+        }
+        .container {
+            margin: 0 auto;
+            width: 1000px;
+        }
+        .row {
+            margin-bottom: 40px;
+        }
+
+        .col-4 {
+            float: left;
+            width: 25%;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+
+
+    </style>
+</head>
+<body class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-8 mx-auto">
+                <div class="card border-0 shadow rounded-3 my-5">
+                    <div class="card-body">
+                        @*<h5 class="card-title">Log İn </h5>*@
+                        <img src="~/movieapp/img/loginn.png" />
+                        @using (Html.BeginForm("Login", "GirisYap", FormMethod.Post)) {
+                            <div class="form-floating mb">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="name" name="Name">
+                                <label for="floatingInput">User Name</label>
+                            </div>
+                            <div class="form-floating mb">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="Sifre" >
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <div class="d-grid">
+                               <input type="submit" value="Log in" class="deneme"/>
+                            </div>
+                        } 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   @RenderBody();
+</body>
+</html>

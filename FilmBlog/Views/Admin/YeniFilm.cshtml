@@ -1,0 +1,27 @@
+﻿@using FilmBlog.Models.Class
+@model Anasayfa
+@{
+    ViewBag.Title = "YeniFilm";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    form{
+        text-align:center;
+    }
+    h2{
+        text-align:center;
+    }
+</style>
+<h2>Yeni Film Ekleme</h2>
+<br />
+<form class="form-group" method="post">
+
+    @Html.LabelFor(x=>x.id)
+    @Html.TextBoxFor(x => x.id,new { @class = "form-control", @readonly = "readonly" })
+    @Html.LabelFor(x=>x.resim)
+    @Html.TextBoxFor(x => x.resim, new {@class = "form-control" } )
+
+    <button class="btn btn-primary">Film Kaydet</button>
+</form>
+
